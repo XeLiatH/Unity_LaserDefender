@@ -18,16 +18,6 @@ public class Player : MonoBehaviour
     float yMin;
     float yMax;
 
-    IEnumerator FireContinously()
-    {
-        while (true)
-        {
-            GameObject laserCopy = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
-            laserCopy.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
-            yield return new WaitForSeconds(projectileFiringPeriod);
-        }
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +61,16 @@ public class Player : MonoBehaviour
         if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(firingCoroutine);
+        }
+    }
+
+    private IEnumerator FireContinously()
+    {
+        while (true)
+        {
+            GameObject laserCopy = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
+            laserCopy.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
     }
 }
