@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 5440150419813156439, guid: 82c120fd4ef297f4f8495e09f4fae49a, type: 3}
-  laserSpeed: 10
+  laserSpeed: 20
   laserFiringPeriod: 0.1
   health: 200
   moveSpeed: 10
@@ -110,7 +110,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

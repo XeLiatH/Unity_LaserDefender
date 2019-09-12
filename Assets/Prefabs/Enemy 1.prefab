@@ -111,7 +111,7 @@ MonoBehaviour:
   health: 100
   minTimeBetweenSots: 0.2
   maxTimeBetweenShots: 3
-  projectileSpeed: 5
+  projectileSpeed: 10
 --- !u!58 &7413675326339044141
 CircleCollider2D:
   m_ObjectHideFlags: 0
