@@ -97,6 +97,7 @@ MonoBehaviour:
   laser: {fileID: 5440150419813156439, guid: 82c120fd4ef297f4f8495e09f4fae49a, type: 3}
   laserSpeed: 20
   laserFiringPeriod: 0.1
+  laserSound: {fileID: 8300000, guid: 4f69abf3113a9e048b2b1f26e2ecabef, type: 3}
   health: 200
   moveSpeed: 10
   padding: 1
