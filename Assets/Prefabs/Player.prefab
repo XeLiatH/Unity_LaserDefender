@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 180835585863114418}
   - component: {fileID: 180835585863114419}
   - component: {fileID: 679781234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 5440150419813156439, guid: 82c120fd4ef297f4f8495e09f4fae49a, type: 3}
-  laserSpeed: 5
+  laserSpeed: 10
   laserFiringPeriod: 0.1
   health: 200
   moveSpeed: 10
