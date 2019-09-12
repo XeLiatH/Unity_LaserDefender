@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Laser")]
+    [SerializeField] GameObject laser;
+    [SerializeField] float laserSpeed = 5f;
+    [SerializeField] float laserFiringPeriod = 0.1f;
+    [Header("Player")]
+    [SerializeField] int health = 200;
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] GameObject laser;
-    [SerializeField] float projectileSpeed = 5f;
-    [SerializeField] float projectileFiringPeriod = 0.1f;
 
     Coroutine firingCoroutine;
 
@@ -18,17 +21,9 @@ public class Player : MonoBehaviour
     float yMin;
     float yMax;
 
-    // Start is called before the first frame update
     void Start()
     {
         SetUpMoveBoundaries();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
-        Fire();
     }
 
     private void SetUpMoveBoundaries()
@@ -38,6 +33,12 @@ public class Player : MonoBehaviour
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1f, 0f, 0f)).x - padding;
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0f, 0f, 0f)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0f, 1f, 0f)).y - padding;
+    }
+
+    void Update()
+    {
+        Move();
+        Fire();
     }
 
     private void Move()
@@ -69,8 +70,26 @@ public class Player : MonoBehaviour
         while (true)
         {
             GameObject laserCopy = Instantiate(laser, transform.position, Quaternion.identity) as GameObject;
-            laserCopy.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, projectileSpeed);
-            yield return new WaitForSeconds(projectileFiringPeriod);
+            laserCopy.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, laserSpeed);
+            yield return new WaitForSeconds(laserFiringPeriod);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (null != damageDealer)
+        {
+            ProcessHit(damageDealer);
+        }
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
