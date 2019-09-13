@@ -109,18 +109,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016513e31cb1fea48947c2ddb5f25544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 5440150419813156439, guid: 6826d0d0709964843a893c8575e5767c, type: 3}
   health: 100
+  scoreAwardedForKill: 150
+  laser: {fileID: 5440150419813156439, guid: 6826d0d0709964843a893c8575e5767c, type: 3}
   minTimeBetweenSots: 0.2
   maxTimeBetweenShots: 3
   projectileSpeed: 10
+  laserSound: {fileID: 8300000, guid: f4768fa0d2a85a0449d4aa8d2b75367d, type: 3}
+  laserSoundVolume: 0.5
   deathVFX: {fileID: 7375731159418449989, guid: 6ed61bb0f43162c459f1056276a0734a,
     type: 3}
   durationOfExplosion: 1
   deathSound: {fileID: 8300000, guid: d2c12e4da0bac8a43b1812cf77e418a6, type: 3}
   deathSoundVolume: 0.5
-  laserSound: {fileID: 8300000, guid: f4768fa0d2a85a0449d4aa8d2b75367d, type: 3}
-  laserSoundVolume: 0.5
 --- !u!58 &7413675326339044141
 CircleCollider2D:
   m_ObjectHideFlags: 0
