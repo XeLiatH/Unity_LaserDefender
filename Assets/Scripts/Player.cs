@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     float yMin;
     float yMax;
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     void Start()
     {
         SetUpMoveBoundaries();
